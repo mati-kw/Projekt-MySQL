@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Make New Order</title>
+</head>
+<body>
+    <div>
+        <h3>Update Menu:</h3>
+    </div>
+    
+    <div>
+        <div class="text-container">
+            <form action= "UpdateMenuInput" method = "POST">
+                
+                <input type="text" name="ManageMenu_dishId" placeholder="Dish ID" required >
+                
+                <input type="text" name="ManageMenu_dish" placeholder="Dish" required>
+                
+                <input type="text" name="ManageMenu_price" placeholder="Price" required>
+
+                <input type="text" name="ManageMenu_vegetarian" placeholder="Vegetarian" required>
+
+                <input type="text" name="ManageMenu_gluten" placeholder="Gluten Free" required>
+                 
+                <button type= "submit" id="btnMakeNewOrder" type="button">Update</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <h3>Add to Menu:</h3>
+    </div>
+    
+    <div>
+        <div class="text-container">
+            <form action= "AddMenuInput" method = "POST">
+                
+                <input type="text" name="ManageMenu_dish" placeholder="Dish" required>
+                
+                <input type="text" name="ManageMenu_price" placeholder="Price" required>
+
+                <input type="text" name="ManageMenu_vegetarian" placeholder="Vegetarian" required>
+
+                <input type="text" name="ManageMenu_gluten" placeholder="Gluten Free" required>
+                 
+                <button type= "submit" id="btnMakeNewOrder" type="button">Add Dish</button>
+            </form>
+        </div>
+    </div>
+    
+      <div>
+          <h3>
+               Menu: 
+          </h3>
+      </div>
+      <div class="text-container">
+        <table>
+            <thead>
+              <tr>
+                  <th>Dish ID</th>
+                  <th>Dish</th>
+                  <th>Price</th>
+                  <th>Vegetarian</th>
+                  <th>Gluten Free</th>
+              </tr>
+              </thead>    
+              <tbody>
+               {% for row in data2 %}    
+                      <tr>
+                          <td>{{row[0]}}</td>
+                          <td>{{row[1]}}</td>
+                          <td>{{row[2]}}</td>
+                          <td>{{row[3]}}</td>
+                          <td>{{row[4]}}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+      <div class="spacer"></div>
+      <div class="footer">
+        <div class="text-container">
+            <form action="/">
+                <button type= "submit"  type="button" id="GB">Go Back</button>
+            </form>
+          </div>
+      </div>
+</body>
+</html>

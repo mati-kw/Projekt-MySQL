@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Make New Order</title>
+</head>
+<body>
+    <div>
+        <h3>Make Order:</h3>
+    </div>
+    
+    <div>
+        <div class="text-container">
+            <form action= "MakeNewOrderInput" method = "POST">
+                
+                <input type="text" name="MakeNewOrder_orderId" placeholder="Order Id" required >
+                
+                <input type="text" name="MakeNewOrder_dishId" placeholder="Dish Id" required>
+                
+                <input type="text" name="MakeNewOrder_customerId" placeholder="Customer Id" required>
+                 
+                <button type= "submit" id="btnMakeNewOrder" type="button">Make New Order</button>
+            </form>
+        </div>
+    </div>
+      <div>
+          <h3>
+              Pending Orders: 
+          </h3>
+      </div>
+      <div class="text-container">
+        <table>
+            <thead>
+              <tr>
+                  <th>Order ID</th>
+                  <th>Dish ID</th>
+                  <th>Order time</th>
+                  <th>Customer ID</th>
+              </tr>
+              </thead>    
+              <tbody>
+               {% for row in data2 %}    
+                      <tr>
+                          <td>{{row[0]}}</td>
+                          <td>{{row[1]}}</td>
+                          <td>{{row[2]}}</td>
+                          <td>{{row[3]}}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+      <div class="spacer"></div>
+      <div class="footer">
+        <div class="text-container">
+            <form action="/">
+                <button type= "submit"  type="button" id="GB">Go Back</button>
+            </form>
+          </div>
+      </div>
+      
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Make New Order</title>
+</head>
+<body>
+    <div>
+        <h3>Delete Pending:</h3>
+    </div>
+    
+    <div>
+        <div class="text-container">
+            <form action= "DeletePending" method = "POST">
+                
+                <input type="text" name="ManageMenu_dishId" placeholder="Order ID" required >
+                 
+                <button type= "submit" id="btnMakeNewOrder" type="button">Delete Pending Order</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <h3>Delete Completed:</h3>
+    </div>
+    
+    <div>
+        <div class="text-container">
+            <form action= "DeleteFinalized" method = "POST">
+                
+                <input type="text" name="ManageMenu_dishId" placeholder="Order ID" required>
+                
+                 
+                <button type= "submit" id="btnMakeNewOrder" type="button">Delete Completed Order</button>
+            </form>
+        </div>
+    </div>
+    
+      <div>
+          <h3>
+               Pending Orders: 
+          </h3>
+      </div>
+      <div class="text-container">
+        <table>
+            <thead>
+              <tr>
+                  <th>Order ID</th>
+                  <th>Dish ID</th>
+                  <th>Order Time</th>
+                  <th>Customer ID</th>
+              </tr>
+              </thead>    
+              <tbody>
+               {% for row in data2 %}    
+                      <tr>
+                          <td>{{row[0]}}</td>
+                          <td>{{row[1]}}</td>
+                          <td>{{row[2]}}</td>
+                          <td>{{row[3]}}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+
+      <div>
+        <h3>
+             Completed Orders: 
+        </h3>
+    </div>
+    <div class="text-container">
+      <table>
+          <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Dish ID</th>
+                <th>Order Time</th>
+                <th>Completed Time</th>
+                <th>Customer ID</th>
+            </tr>
+            </thead>    
+            <tbody>
+             {% for row in data3 %}    
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="spacer"></div>
+    <div class="footer">
+        <div class="text-container">
+            <form action="/">
+                <button type= "submit"  type="button" id="GB">Go Back</button>
+            </form>
+          </div>
+      </div>
+</body>
+</html>
