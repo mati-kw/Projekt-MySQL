@@ -6,7 +6,7 @@ create table employees (
 	salary INT,
 	job VARCHAR(6),
 	PRIMARY KEY (id)
-);
+)ENGINE=InnoDB;
 
 create table menu (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -15,7 +15,7 @@ create table menu (
 	vegetarian VARCHAR(50),
 	gluten_free VARCHAR(50),
 	PRIMARY KEY (id)
-);
+)ENGINE=InnoDB;
 
 create table customers (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -23,7 +23,7 @@ create table customers (
 	last_name VARCHAR(50),
 	telephone VARCHAR(50),
 	PRIMARY KEY (id)
-);
+)ENGINE=InnoDB;
 
 create table pending_orders (
 	order_id INT NOT NULL,
@@ -32,7 +32,7 @@ create table pending_orders (
 	customer_id INT NOT NULL,
 	FOREIGN KEY (dish_id) REFERENCES menu(id),
     	FOREIGN KEY (customer_id) REFERENCES customers(id)
-);
+)ENGINE=InnoDB;
 
 create table completed_orders (
 	order_id INT NOT NULL,
@@ -44,7 +44,7 @@ create table completed_orders (
 	FOREIGN KEY (dish_id) REFERENCES menu(id),
 	FOREIGN KEY (employee_id) REFERENCES employees(id),
 	FOREIGN KEY (customer_id) REFERENCES customers(id)
-);
+)ENGINE=InnoDB;
 
 create table shops (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -54,7 +54,7 @@ create table shops (
 	city VARCHAR(50),
 	type VARCHAR(21),
 	PRIMARY KEY (id)
-);
+)ENGINE=InnoDB;
 
 
 
@@ -67,7 +67,7 @@ create table supply_orders (
 	PRIMARY KEY (id),
 	FOREIGN KEY (shop_id) REFERENCES shops(id),
 	FOREIGN KEY (employee_id) references employees(id)
-);
+)ENGINE=InnoDB;
 
 
 
